@@ -4,10 +4,20 @@ STEAMAPPS="$HOME/.local/share/Steam/steamapps"
 
 cd "$STEAMAPPS" || exit
 
+is_game() {
+  echo "$1" | grep -qiE '(soundtrack|proton|runtime|server|dedicated|sdk|tool|demo|beta|editor|shader|redistributable)' && return 1
+  return 0
+}
+
 selected=$(
   for f in appmanifest_*.acf; do
     appid=$(grep -m1 '"appid"' "$f" | cut -d '"' -f4)
     name=$(grep -m1 '"name"' "$f" | cut -d '"' -f4)
+
+    if ! is_game "$name"; then
+      continue
+    fi
+
     echo "$appid | $name"
   done | fzf \
     --delimiter="|" \
