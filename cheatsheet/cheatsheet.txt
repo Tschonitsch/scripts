@@ -1,0 +1,315 @@
+# ---------- File Listing ----------
+ls      | List directory contents
+ls -la  | List all files with details
+ls -lh  | List files with human-readable sizes
+ls -R   | List recursively
+ls -l   | List files in long format
+ls -a   | Show hidden files
+ls -A   | Show hidden files except . and ..
+ls -lt  | Sort by modification time
+ls -ltr | Sort by oldest modification time
+ls -lS  | Sort by file size
+ls -lX  | Sort by file extension
+ls -lhS | Sort by size with human-readable sizes
+tree    | Display directory tree
+# ---------- File Listing ----------
+
+# ---------- Navigation ----------
+cd            | Change directory
+cd ..         | Go up one level
+cd ~          | Go to home
+cd -          | Go to previous directory
+pwd           | Print working directory
+pushd         | Push directory onto stack
+popd          | Return to previous directory
+dirs          | Display directory stack
+realpath file | Show absolute path
+# ---------- Navigation ----------
+
+# ---------- Create & Delete ----------
+mkdir dir      | Create directory
+mkdir -p a/b/c | Create nested directories
+touch file     | Create empty file or update timestamp
+rm file        | Remove file
+rm -i file     | Remove file interactively
+rm -r dir      | Remove directory recursively
+rm -rf dir     | Force-remove directory recursively
+rmdir dir      | Remove empty directory
+install -d dir | Create directory with specified attributes
+# ---------- Create & Delete ----------
+
+# ---------- Copy & Move ----------
+cp file dest      | Copy file
+cp -i file dest   | Prompt before overwriting
+cp -r src dest    | Copy directory recursively
+cp -a src dest    | Copy while preserving attributes
+mv file dest      | Move or rename file
+mv -i file dest   | Prompt before overwriting
+ln file link      | Create hard link
+ln -s target link | Create symbolic link
+# ---------- Copy & Move ----------
+
+# ---------- File Viewing ----------
+cat file        | Display file contents
+less file       | View file with pagination
+head file       | Show first 10 lines
+head -n 20 file | Show first 20 lines
+tail file       | Show last 10 lines
+tail -n 20 file | Show last 20 lines
+tail -f file    | Follow file changes
+tail -F file    | Follow file across rotations
+nl file         | Display lines with numbers
+tac file        | Display lines in reverse order
+bat file        | Display file with syntax highlighting
+# ---------- File Viewing ----------
+
+# ---------- File Search ----------
+find . -name "*.txt"       | Find files by name
+find . -type f             | Find regular files
+find . -type d             | Find directories
+find . -type f -size +100M | Find files larger than 100 MB
+find . -mtime -7           | Find files modified within 7 days
+find . -empty              | Find empty files and directories
+locate filename            | Search using locate database
+which command              | Locate executable in PATH
+whereis command            | Locate binary, source and manual
+command -v command         | Find command type or executable
+# ---------- File Search ----------
+
+# ---------- Text Search ----------
+grep "text" file     | Search for text in file
+grep -i "text" file  | Case-insensitive search
+grep -n "text" file  | Show matching line numbers
+grep -v "text" file  | Show non-matching lines
+grep -r "text" dir   | Search recursively
+grep -rn "text" dir  | Recursive search with line numbers
+grep -l "text" *.txt | List matching filenames
+grep -w "word" file  | Match whole words
+rg "text"            | Fast recursive search with ripgrep
+rg -i "text"         | Case-insensitive ripgrep search
+# ---------- Text Search ----------
+
+# ---------- File Information ----------
+file filename       | Determine file type
+stat filename       | Display file metadata
+basename /path/file | Extract filename from path
+dirname /path/file  | Extract directory from path
+du -sh dir          | Show total directory size
+du -h --max-depth=1 | Show sizes of immediate subdirectories
+df -h               | Show filesystem disk usage
+df -Th              | Show disk usage and filesystem types
+lsblk               | List block devices
+lsblk -f            | List devices with filesystem details
+# ---------- File Information ----------
+
+# ---------- Permissions ----------
+chmod +x file             | Add execute permission
+chmod 644 file            | Set rw-r--r-- permissions
+chmod 755 file            | Set rwxr-xr-x permissions
+chmod -R 755 dir          | Change permissions recursively
+chown user file           | Change file owner
+chown user:group file     | Change owner and group
+chgrp group file          | Change file group
+umask                     | Display default permission mask
+getfacl file              | Display access control lists
+setfacl -m u:user:rw file | Grant user read/write access
+# ---------- Permissions ----------
+
+# ---------- User Information ----------
+whoami       | Display current username
+id           | Display user ID and groups
+who          | Show logged-in users
+w            | Show logged-in users and their activity
+groups       | Display current user's groups
+last         | Show login history
+passwd       | Change current user's password
+sudo command | Run command with elevated privileges
+su - user    | Switch user with login environment
+# ---------- User Information ----------
+
+# ---------- Process Viewing ----------
+ps aux        | List all running processes
+ps -ef        | Display processes in full format
+top           | Interactive process monitor
+htop          | Interactive process monitor with extra features
+pgrep name    | Find process IDs by name
+pidof program | Find PID of a program
+pstree        | Display process tree
+watch command | Repeat command periodically
+# ---------- Process Viewing ----------
+
+# ---------- Process Control ----------
+kill PID           | Send termination signal to process
+kill -9 PID        | Force-kill process
+pkill name         | Terminate processes by name
+killall name       | Terminate all processes with specified name
+timeout 10 command | Run command with time limit
+nice -n 10 command | Start command with adjusted priority
+renice 10 -p PID   | Change process priority
+# ---------- Process Control ----------
+
+# ---------- Background Jobs ----------
+command &       | Run command in background
+jobs            | List shell jobs
+fg              | Bring current job to foreground
+fg %1           | Bring job 1 to foreground
+bg              | Resume suspended job in background
+nohup command & | Keep command running after terminal closes
+disown          | Remove job from shell job table
+wait            | Wait for background jobs to finish
+# ---------- Background Jobs ----------
+
+# ---------- Disk Usage & Memory ----------
+free -h                               | Show memory usage
+free -m                               | Show memory usage in MB
+du -sh *                              | Show sizes of items in current directory
+du -sh dir                            | Show total directory size
+df -h                                 | Show available disk space
+lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINTS | Show disks and mount points
+findmnt                               | Display mounted filesystems
+mount                                 | Display mounted filesystems
+# ---------- Disk Usage & Memory ----------
+
+# ---------- Network ----------
+ip a                | Show IP addresses and interfaces
+ip r                | Show routing table
+ping -c 4 host      | Send 4 connectivity checks
+curl URL            | Transfer data from URL
+curl -I URL         | Fetch HTTP response headers
+wget URL            | Download file from URL
+dig domain.com      | Query DNS records
+getent hosts domain | Resolve hostname
+ss -tuln            | Show listening TCP/UDP ports
+ss -tulpn           | Show listening ports and process details
+lsof -i :PORT       | Show process using a network port
+# ---------- Network ----------
+
+# ---------- SSH & File Transfer ----------
+ssh user@host                   | Connect to remote host
+ssh -p 2222 user@host           | Connect using custom SSH port
+scp file user@host:/path        | Copy file to remote host
+scp user@host:/path/file .      | Copy remote file locally
+rsync -av src/ dest/            | Synchronize directories
+rsync -av --progress src/ dest/ | Synchronize with progress
+sftp user@host                  | Start secure file transfer session
+# ---------- SSH & File Transfer ----------
+
+# ---------- Archives & Compression ----------
+tar -cf archive.tar dir      | Create tar archive
+tar -xf archive.tar          | Extract tar archive
+tar -czf archive.tar.gz dir  | Create gzip-compressed archive
+tar -xzf archive.tar.gz      | Extract gzip-compressed archive
+tar -cJf archive.tar.xz dir  | Create xz-compressed archive
+tar -xJf archive.tar.xz      | Extract xz-compressed archive
+gzip file                    | Compress file
+gunzip file.gz               | Decompress gzip file
+zip -r archive.zip dir       | Create ZIP archive
+unzip archive.zip            | Extract ZIP archive
+# ---------- Archives & Compression ----------
+
+# ---------- Text Processing ----------
+wc -l file        | Count lines
+wc -w file        | Count words
+wc -c file        | Count bytes
+sort file         | Sort lines
+sort -u file      | Sort and remove duplicate lines
+uniq file         | Remove adjacent duplicate lines
+cut -d: -f1 file  | Extract first colon-separated field
+tr 'a-z' 'A-Z'    | Convert lowercase to uppercase
+paste file1 file2 | Merge lines from files
+# ---------- Text Processing ----------
+
+# ---------- Sed & Awk ----------
+sed 's/old/new/g' file    | Replace text in output
+sed -n '1,10p' file       | Print lines 1 to 10
+sed -i 's/old/new/g' file | Replace text directly in file
+awk '{print $1}' file     | Print first whitespace-separated field
+awk -F: '{print $1}' file | Print first colon-separated field
+# ---------- Sed & Awk ----------
+
+# ---------- Pipes & Redirection ----------
+command > file      | Redirect output and overwrite file
+command >> file     | Append output to file
+command 2> file     | Redirect errors to file
+command 2>&1        | Redirect errors to standard output
+command < file      | Read input from file
+command1 | command2 | Pipe output into another command
+command | tee file  | Display and save output
+command | xargs     | Build and execute arguments
+diff file1 file2    | Compare files line by line
+# ---------- Pipes & Redirection ----------
+
+# ---------- System Information ----------
+uname -a             | Display kernel and system information
+uname -r             | Display kernel version
+hostname             | Display system hostname
+hostnamectl          | Show or manage hostname information
+uptime               | Show system uptime and load
+date                 | Display current date and time
+timedatectl          | Display time and synchronization status
+dmesg -T             | Display kernel messages with timestamps
+journalctl -b        | Show current boot logs
+journalctl -p err -b | Show errors from current boot
+history              | Display shell command history
+lscpu                | Display CPU information
+lspci                | List PCI devices
+lsusb                | List USB devices
+# ---------- System Information ----------
+
+# ---------- System Control ----------
+systemctl status service  | Show service status
+systemctl start service   | Start service
+systemctl stop service    | Stop service
+systemctl restart service | Restart service
+systemctl enable service  | Enable service at boot
+systemctl disable service | Disable service at boot
+systemctl --failed        | List failed systemd units
+shutdown now              | Shut down system
+reboot                    | Restart system
+sysctl -a                 | Display kernel parameters
+# ---------- System Control ----------
+
+# ---------- Package Management (Arch Linux) ----------
+pacman -S package  | Install package
+pacman -Ss keyword | Search official repositories
+pacman -Si package | Show package information
+pacman -Qi package | Show installed package information
+pacman -Q          | List installed packages
+pacman -Qe         | List explicitly installed packages
+pacman -Qs keyword | Search installed packages
+pacman -R package  | Remove package
+pacman -Rs package | Remove package and unused dependencies
+pacman -Syu        | Synchronize databases and upgrade system
+pacman -Sc         | Remove unused cached packages
+yay -S package     | Install package or AUR package
+yay -Ss keyword    | Search repositories and AUR
+# ---------- Package Management (Arch Linux) ----------
+
+# ---------- Kernel Modules ----------
+lsmod              | List loaded kernel modules
+modinfo module     | Display kernel module information
+modprobe module    | Load kernel module
+modprobe -r module | Unload kernel module
+# ---------- Kernel Modules ----------
+
+# ---------- Bash Built-ins ----------
+echo "text"          | Print text
+printf '%s\n' "text" | Print formatted text
+read variable        | Read user input
+source file          | Execute file in current shell
+export VAR=value     | Set environment variable
+alias                | List shell aliases
+type command         | Show command type
+history              | Show command history
+!!                   | Repeat previous command
+!$                   | Reuse last argument of previous command
+exit                 | Exit current shell
+# ---------- Bash Built-ins ----------
+
+# ---------- Timing & Scheduling ----------
+time command       | Measure command execution time
+watch -n 2 command | Repeat command every 2 seconds
+sleep 5            | Wait for 5 seconds
+crontab -e         | Edit scheduled user jobs
+crontab -l         | List scheduled user jobs
+# ---------- Timing & Scheduling ----------
